@@ -1,0 +1,77 @@
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { height: 100%; overflow: hidden; }
+
+/* ── TOKENS ── */
+:root {
+  --bg:       #0b0d12;
+  --bg2:      #111318;
+  --bg3:      #181c24;
+  --bg4:      #1f2430;
+  --bg5:      #252b38;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.13);
+  --text:     #eef0f6;
+  --text2:    #7c8599;
+  --text3:    #4a5268;
+
+  --accent:      #5b7fff;
+  --accent-dim:  rgba(91,127,255,0.15);
+  --accent-glow: rgba(91,127,255,0.3);
+
+  --green:     #1fd693;
+  --green-dim: rgba(31,214,147,0.12);
+  --red:       #ff4d6d;
+  --red-dim:   rgba(255,77,109,0.12);
+  --amber:     #ffb020;
+  --amber-dim: rgba(255,176,32,0.12);
+  --purple:    #9b72ff;
+  --purple-dim:rgba(155,114,255,0.12);
+  --cyan:      #06b6d4;
+  --cyan-dim:  rgba(6,182,212,0.12);
+  --pink:      #f472b6;
+  --pink-dim:  rgba(244,114,182,0.12);
+
+  --font:         'Instrument Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+
+  --sidebar-w: 58px;
+  --panel-w:   288px;
+  --detail-w:  256px;
+  --radius:    10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+}
+
+/* ── BASE ── */
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SCROLLBARS ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+* { scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
+
+/* ── SELECTION ── */
+::selection { background: var(--accent-dim); color: var(--accent); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn   { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes slideIn  { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+@keyframes slideUp  { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes spin     { to { transform: rotate(360deg); } }
+@keyframes pulse    { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes msgIn    { from { opacity: 0; transform: translateY(8px) scale(0.97); } to { opacity: 1; transform: none; } }
+
+.animate-fade  { animation: fadeIn  0.2s ease both; }
+.animate-slide { animation: slideIn 0.2s ease both; }
+.animate-up    { animation: slideUp 0.2s ease both; }
+.animate-msg   { animation: msgIn   0.18s ease both; }
